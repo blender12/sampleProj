@@ -1,4 +1,5 @@
 import React,{useState} from 'react';
+import Navbar from './navbar';
 import axios from 'axios';
 
 function App(){
@@ -13,6 +14,7 @@ function App(){
     }
     return(
         <>
+        <Navbar/>
         {val?<h1>{val}</h1>:<h1>hi</h1>}
         <button onClick={clikme}>click</button>
         </>

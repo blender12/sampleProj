@@ -5,7 +5,7 @@ routes.get('/',(req,res)=>{
     res.send("mooo");
 })
 
-routes.get('/cd:id',(req,res)=>{
+routes.get('/:id',(req,res)=>{
     res.send(req.query.sound);
 })
 
