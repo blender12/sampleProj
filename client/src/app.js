@@ -16,7 +16,7 @@ function App(){
         <button onClick={async()=>{
             const {data}=await api.del();
             alert(data);
-        }}></button>
+        }}>del</button>
         </>
     )
 }
