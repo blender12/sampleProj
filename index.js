@@ -1,8 +1,16 @@
+const dotenv=require('dotenv').config();
 const express=require('express');
+const mongoose=require('mongoose');
 const cors =require('cors');
+const bodyParser=require("body-parser");
 const routes=require("./routes.js");
 const path= require('path');
 const app=express();
+const{mongo_url}=process.env;
+mongoose.connect(mongo_url,{useUnifiedTopology:true,useCreateIndex:true,useNewUrlParser:true})
+mongoose.connection.once('open',()=>{console.log("connected")}).on('error',()=>{console.log("error")});
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(cors());
 app.use(express.static(path.join(__dirname,'client/build')))
 app.use('/cow',routes);

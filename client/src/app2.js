@@ -1,23 +1,28 @@
 import React,{useState} from 'react';
 import Navbar from './navbar';
-import axios from 'axios';
+import * as api from './apiCall.js';
 
  function APP2(){
+    
    const [val,setVal]=useState(false);
    const clickme=async()=>{
-       let b="hoo ha hoo ha";
-       let res=await axios({
-           method:"GET",
-           url:`/cow/id?sound=${b}`,
-       })
-       let data=await res.data;
-       setVal(data);
+     
+       const {data}=await api.chec();
+       console.log(data)
    }
+   
+   const apiCall=async()=>{
+    let formData={name:"wasiq",email:"test@gmail.com"}
+    const {data}=await api.signIn(formData);
+    console.log(data);
+   }
+
      return(
          <>
          <Navbar/>
          {val?<h1>{val}</h1>:<h1>App2</h1>}
          <button onClick={clickme}>Click</button>
+         <button onClick={apiCall}>Click api</button>
          </>
      )
  }
