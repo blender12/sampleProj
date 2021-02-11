@@ -15,7 +15,7 @@ function App(){
         <button onClick={clikme}>click</button>
         <button onClick={async()=>{
             const {data}=await api.del();
-            alert(data);
+             console.log(data);
         }}>del</button>
         </>
     )

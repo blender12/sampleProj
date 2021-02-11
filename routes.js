@@ -26,11 +26,10 @@ routes.get('/id',async(req,res)=>{
 })
 
 routes.get('/del',async(req,res)=>{
-       fs.unlink('./client/src/upload/test.txt',(err)=>{
-           if(err){console.log(err)}
-           console.log("all ok");
-       });
-       res.status(200).send("ok");
+        fs.readFile('./client/src/upload/app.txt',(err,data)=>{
+            res.status(200).send(data);
+        })
+      
 })
 
 module.exports=routes;
